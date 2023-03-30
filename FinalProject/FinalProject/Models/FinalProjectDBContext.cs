@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
-using MyFirstAPI.Models;
+using FinalProject.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
-namespace MyFirstAPI.Models
+namespace FinalProject.Models
 {
-    public class MyFirstAPIDBContext : DbContext
+    public class FinalProjectDBContext : DbContext
     {
         protected readonly IConfiguration Configuration;
 
-        public MyFirstAPIDBContext(DbContextOptions<MyFirstAPIDBContext> options, IConfiguration configuration)
+        public FinalProjectDBContext(DbContextOptions<FinalProjectDBContext> options, IConfiguration configuration)
             : base(options)
         {
             Configuration = configuration;

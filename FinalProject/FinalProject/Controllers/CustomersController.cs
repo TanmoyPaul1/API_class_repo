@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyFirstAPI.Models;
+using FinalProject.Models;
 
 namespace FinalProject.Controllers
 {
@@ -13,9 +13,9 @@ namespace FinalProject.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly MyFirstAPIDBContext _context;
+        private readonly FinalProjectDBContext _context;
 
-        public CustomersController(MyFirstAPIDBContext context)
+        public CustomersController(FinalProjectDBContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace FinalProject.Controllers
         {
           if (_context.Customers == null)
           {
-              return Problem("Entity set 'MyFirstAPIDBContext.Customers'  is null.");
+              return Problem("Entity set 'FinalProjectDBContext.Customers'  is null.");
           }
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();

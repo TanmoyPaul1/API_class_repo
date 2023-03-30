@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using MyFirstAPI.Models;
+using FinalProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<MyFirstAPIDBContext>();
+builder.Services.AddDbContext<FinalProjectDBContext>();
 // builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
 

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MyFirstAPI.Models
+namespace FinalProject.Models
 {
     public class Email
     {
