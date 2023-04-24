@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using FinalProject.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using Microsoft.CodeAnalysis;
 
 namespace FinalProject.Models
 {
@@ -22,7 +23,7 @@ namespace FinalProject.Models
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
-        public DbSet<Customer> Customers { get; set; } = null!; 
-        public DbSet<Email> Emails { get; set; } = null!;
+        public DbSet<Location> Locations { get; set; } = null!; 
+        public DbSet<Landmark> Landmarks { get; set; } = null!;
     }
 }

@@ -11,55 +11,55 @@ namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class LandmarksController : ControllerBase
     {
         private readonly FinalProjectDBContext _context;
 
-        public CustomersController(FinalProjectDBContext context)
+        public LandmarksController(FinalProjectDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Customers
+        // GET: api/Landmarks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<IEnumerable<Landmark>>> GetLandmarks()
         {
-          if (_context.Customers == null)
+          if (_context.Landmarks == null)
           {
               return NotFound();
           }
-            return await _context.Customers.ToListAsync();
+            return await _context.Landmarks.ToListAsync();
         }
 
-        // GET: api/Customers/5
+        // GET: api/Landmarks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(int id)
+        public async Task<ActionResult<Landmark>> GetLandmark(int id)
         {
-          if (_context.Customers == null)
+          if (_context.Landmarks == null)
           {
               return NotFound();
           }
-            var customer = await _context.Customers.FindAsync(id);
+            var landmark = await _context.Landmarks.FindAsync(id);
 
-            if (customer == null)
+            if (landmark == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            return landmark;
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Landmarks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(int id, Customer customer)
+        public async Task<IActionResult> PutLandmark(int id, Landmark landmark)
         {
-            if (id != customer.CustomerID)
+            if (id != landmark.LandmarkID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(customer).State = EntityState.Modified;
+            _context.Entry(landmark).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace FinalProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(id))
+                if (!LandmarkExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace FinalProject.Controllers
             return NoContent();
         }
 
-        // POST: api/Customers
+        // POST: api/Landmarks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Landmark>> PostLandmark(Landmark landmark)
         {
-          if (_context.Customers == null)
+          if (_context.Landmarks == null)
           {
-              return Problem("Entity set 'FinalProjectDBContext.Customers'  is null.");
+              return Problem("Entity set 'FinalProjectDBContext.Landmarks'  is null.");
           }
-            _context.Customers.Add(customer);
+            _context.Landmarks.Add(landmark);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.CustomerID }, customer);
+            return CreatedAtAction("GetLandmark", new { id = landmark.LandmarkID }, landmark);
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Landmarks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(int id)
+        public async Task<IActionResult> DeleteLandmark(int id)
         {
-            if (_context.Customers == null)
+            if (_context.Landmarks == null)
             {
                 return NotFound();
             }
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
+            var landmark = await _context.Landmarks.FindAsync(id);
+            if (landmark == null)
             {
                 return NotFound();
             }
 
-            _context.Customers.Remove(customer);
+            _context.Landmarks.Remove(landmark);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CustomerExists(int id)
+        private bool LandmarkExists(int id)
         {
-            return (_context.Customers?.Any(e => e.CustomerID == id)).GetValueOrDefault();
+            return (_context.Landmarks?.Any(e => e.LandmarkID == id)).GetValueOrDefault();
         }
     }
 }
