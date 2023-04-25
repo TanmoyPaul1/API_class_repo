@@ -9,7 +9,9 @@ To run the final project API:
 3. use the command ```dotnet run```
 4. alternatively, open the FinalProject.sln solution in Visual Studio and press Start. 
 
-This API has a list of countries and cities in the locations endpoint. When the user wants to travel, they can find the city they wish to travel to and see all the landmarks in that city. The landmarks have the number of hotels nearby, the rating, and the average price of the ticket there. 
+This API has a list of countries and cities in the locations endpoint. When the user wants to travel, they can find the city they wish to travel to and see all the landmarks in that city. The landmarks have the number of hotels nearby, the rating, and the average price of the tickets for entry. 
+
+The SQL files for the database are in the sql folder in the FinalProject folder. 
 
 
 ## Endpoints
